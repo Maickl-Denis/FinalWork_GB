@@ -28,3 +28,26 @@ sudo dpkg - i mysql-connector-j_8.0.32-1ubuntu22.04_all.deb
 sudo dpkg -r mysql-connector-j
 sudo apt-get autoremove
 ```
+
+5. Выложить историю команд в терминале ubuntu
+
+```shell
+ 1289  cat > home_animals
+ 1290  cat > Pack_animals
+ 1291  cat home_animals Pack_animals > aniamls
+ 1292  cat aniamls
+ 1293  mv aniamls Mans_friend
+ 1294  ls
+ 1295  mkdir direktory
+ 1296  mv Mans_friend ./direktory/Mans_friend
+ 1297  ll ./direktory/
+ 1298  sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.26-1_all.deb
+ 1299  sudo dpkg -i mysql-apt-config_0.8.26-1_all.deb
+ 1300  sudo apt-get update
+ 1301  sudo wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_8.0.32-1ubuntu22.04_all.deb
+ 1302  sudo dpkg - i mysql-connector-j_8.0.32-1ubuntu22.04_all.deb
+ 1303  sudo dpkg -r mysql-connector-j
+ 1304  sudo apt-get autoremove
+```
+
+6. 
