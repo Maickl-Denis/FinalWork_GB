@@ -121,3 +121,29 @@ INSERT INTO Camel (name, birthday, commands, type_id) VALUES ('Верблюд 1'
 
 INSERT INTO Donkey (name, birthday, commands, type_id) VALUES ('Осел 1', '2022-06-15', 'Тащить груз', 2), ('Осел 2', '2022-06-16', 'Тащить груз больше чем соседний осел', 2), ('Осел 3', '2022-06-15', "Везти человека", 2);
 ```
+
+10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
+
+```sql
+DELETE FROM Camel;
+INSERT INTO horses (name, birthday, commands) SELECT name, birthday, commands FROM Donkey;
+DROP TABLE Donkey;
+RENAME TABLE horses TO horses_donkeys;
+```
+
+11.Создать новую таблицу “молодые животные” в которую попадут все
+животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
+до месяца подсчитать возраст животных в новой таблице
+
+```sql
+CREATE TEMPORARY TABLE animals AS 
+SELECT * FROM horses_donkeys
+UNION SELECT * FROM dogs
+UNION SELECT * FROM cats
+UNION SELECT * FROM hamsters;
+
+CREATE TABLE young_animals  AS
+SELECT name, birthday, commands, TIMESTAMPDIFF(MONTH, Birthday, CURDATE()) AS Age_in_month
+FROM animals WHERE birthday BETWEEN ADDDATE(curdate(), INTERVAL -3 YEAR) AND ADDDATE(CURDATE(), INTERVAL -1 YEAR);
+```
