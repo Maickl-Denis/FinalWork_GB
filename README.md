@@ -79,3 +79,23 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> CREATE DATABASE Human_friends;
 Query OK, 1 row affected (0,03 sec)
 ```
+
+8. Создать таблицы с иерархией из диаграммы в БД
+```sql
+CREATE TABLE home_animals(id INT AUTO_INCREMENT PRIMARY KEY, type_name VARCHAR (20), animal_id INT, FOREIGN KEY (animal_id) REFERENCES animal (id) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE pack_animals(id INT AUTO_INCREMENT PRIMARY KEY, type_name VARCHAR (20), animal_id INT, FOREIGN KEY (animal_id) REFERENCES animal (id) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE dogs(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE cats(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE hamsters(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE horses (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE Camel (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+
+CREATE TABLE Donkey (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+```
+9. 
