@@ -6,3 +6,9 @@
 Переименовать файл, дав ему новое имя (Друзья человека)
 
 ![image](https://github.com/Maickl-Denis/FinalWork_GB/assets/81251154/f8026325-cfbf-4f10-a3e5-335ed5c6d5ba)
+
+2. Создать директорию, переместить файл туда.
+
+![image](https://github.com/Maickl-Denis/FinalWork_GB/assets/81251154/29e1a202-2fe8-40de-b350-5e9594e0e8ce)
+
+3. 
