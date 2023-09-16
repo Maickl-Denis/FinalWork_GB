@@ -11,4 +11,8 @@
 
 ![image](https://github.com/Maickl-Denis/FinalWork_GB/assets/81251154/29e1a202-2fe8-40de-b350-5e9594e0e8ce)
 
-3. 
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+из этого репозитория.
+
+![image](https://github.com/Maickl-Denis/FinalWork_GB/assets/81251154/0362a130-1e52-47d9-9b5d-03311918ba07)
+
