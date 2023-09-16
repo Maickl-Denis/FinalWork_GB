@@ -86,16 +86,38 @@ CREATE TABLE home_animals(id INT AUTO_INCREMENT PRIMARY KEY, type_name VARCHAR (
 
 CREATE TABLE pack_animals(id INT AUTO_INCREMENT PRIMARY KEY, type_name VARCHAR (20), animal_id INT, FOREIGN KEY (animal_id) REFERENCES animal (id) ON DELETE CASCADE ON UPDATE CASCADE);
 
-CREATE TABLE dogs(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+CREATE TABLE dogs(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, commands VARCHAR(50), type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
 
-CREATE TABLE cats(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+CREATE TABLE cats(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, commands VARCHAR(50), type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
 
-CREATE TABLE hamsters(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+CREATE TABLE hamsters(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, commands VARCHAR(50), type_id int, Foreign KEY (type_id) REFERENCES home_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
 
-CREATE TABLE horses (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+CREATE TABLE horses (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, commands VARCHAR(50), type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
 
-CREATE TABLE Camel (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+CREATE TABLE Camel (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, commands VARCHAR(50), type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
 
-CREATE TABLE Donkey (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
+CREATE TABLE Donkey (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), birthday DATE, commands VARCHAR(50), type_id int, Foreign KEY (type_id) REFERENCES pack_animals (id) ON DELETE CASCADE ON UPDATE CASCADE);
 ```
-9. 
+
+9. Заполнить низкоуровневые таблицы именами(животных), командами
+которые они выполняют и датами рождения
+
+```sql
+INSERT INTO animal (class_name) VALUES ('Домашние'), ('Вьючные');
+
+INSERT INTO pack_animals (type_name, animal_id) VALUES ('Собаки', 2), ('Кошки', 2), ('Хомячки', 2); 
+
+INSERT INTO home_animals (type_name, animal_id) VALUES ('Лошади', 2), ('Верблюды', 2), ('Ослы', 2); 
+
+INSERT INTO dogs (name, birthday, commands, type_id) VALUES ('Лана', '2022-06-01', 'к ноге, лежать, сидеть, голос', 1), ('Шарик', '2022-06-02', "сидеть, лежать, лапу, принеси", 1), ('Полкан', '2022-06-03', "сидеть, лежать, лапу, фас", 1), ('Рэй', '2022-06-04', "сидеть, лежать, голос, место", 1);
+
+INSERT INTO cats (name, birthday, commands, type_id) VALUES ('Киса', '2022-06-05', 'есть', 1), ('Муркзик', '2022-06-06', 'умри', 1);
+
+INSERT INTO hamsters (name, birthday, commands, type_id) VALUES ('Лео', '2022-06-06', NULL, 1), ('Донатело', '2022-06-07', NULL, 1), ('Микеланджело', '2022-06-08', "", 1);
+
+INSERT INTO horses (name, birthday, commands, type_id) VALUES ('Звездачка', '2022-06-09', 'Голоп', 2), ('Искорка', '2022-06-10', 'Рысь', 2), ('Задира', '2022-06-11', "Сбросить наездника", 2);
+
+INSERT INTO Camel (name, birthday, commands, type_id) VALUES ('Верблюд 1', '2022-06-12', 'сбросить горб', 2), ('Верблюд 2', '2022-06-13', 'убить всех людей', 2), ('Верблюд 3', '2022-06-14', "Найти воду", 2);
+
+INSERT INTO Donkey (name, birthday, commands, type_id) VALUES ('Осел 1', '2022-06-15', 'Тащить груз', 2), ('Осел 2', '2022-06-16', 'Тащить груз больше чем соседний осел', 2), ('Осел 3', '2022-06-15', "Везти человека", 2);
+```
