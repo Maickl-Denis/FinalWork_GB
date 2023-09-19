@@ -10,3 +10,6 @@ class Hamster(Home_animals):
 
     def getAnimalType(self):
         return self.__AnimalType
+
+    def __str__(self):
+        return f"{self.__AnimalType} с идентификатором {self.get_pet_id()}: имя: {self.get_name()}, дата рождения: {self.get_birthday()}"

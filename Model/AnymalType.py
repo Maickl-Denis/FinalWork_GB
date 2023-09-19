@@ -9,12 +9,6 @@ class AnimalType:
                 return 'Cat'
             case 3:
                 return "Hamster"
-            case 4:
-                return "Horse"
-            case 5:
-                return "Camel"
-            case 6:
-                return "Donkey"
             case _:
                 return None
 

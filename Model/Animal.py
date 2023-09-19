@@ -6,6 +6,7 @@ class Animal:
         self.__pet_id = None
         self.__name = None
         self.__birthday = None
+        self.__lessen = None
 
     def set_pet_id(self, pet_id):
         self.__pet_id = pet_id
@@ -25,11 +26,17 @@ class Animal:
             birthdate = datetime.datetime.strptime(birthdate, '%Y-%m-%d')
             self.__birthday = birthdate.strftime("%Y-%m-%d")
         except ValueError:
-            print("Ведите дату в формате ГГГГ-ММ-ДД")
+            print("Неверный формат даты")
 
 
     def get_birthday(self):
         return self.__birthday
+
+    def set_lessen(self, less):
+        self.__lessen = str(less)
+
+    def get_lessen(self):
+        return self.__lessen
 
     def __str__(self):
         return f"Питомец с идентификатором {self.__pet_id}: имя: {self.__name}, дата рождения: {self.__birthday}"
