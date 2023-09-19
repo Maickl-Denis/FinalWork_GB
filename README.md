@@ -171,3 +171,5 @@ FROM hamsters hm
 LEFT JOIN young_animals ya ON ya.name = hm.name
 LEFT JOIN home_animals ha ON ha.id = hm.type_id;
 ```
+13.Создать класс с Инкапсуляцией методов и наследованием по диаграмме.
+
