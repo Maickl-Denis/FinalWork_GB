@@ -147,3 +147,27 @@ CREATE TABLE young_animals  AS
 SELECT name, birthday, commands, TIMESTAMPDIFF(MONTH, Birthday, CURDATE()) AS Age_in_month
 FROM animals WHERE birthday BETWEEN ADDDATE(curdate(), INTERVAL -3 YEAR) AND ADDDATE(CURDATE(), INTERVAL -1 YEAR);
 ```
+12. Объединить все таблицы в одну, при этом сохраняя поля, указывающие на
+прошлую принадлежность к старым таблицам.
+
+```sql
+SELECT h.name, h.birthday, h.commands, pa.type_name, ya.Age_in_month 
+FROM horses_donkeys h
+LEFT JOIN young_animals ya ON ya.name = h.name
+LEFT JOIN pack_animals pa ON pa.id = h.type_id
+UNION
+SELECT c.name, c.birthday, c.commands, ha.type_name, ya.Age_in_month 
+FROM cats c
+LEFT JOIN young_animals ya ON ya.name = c.name
+LEFT JOIN home_animals ha ON ha.id = c.type_id
+UNION
+SELECT d.name, d.birthday, d.commands, ha.type_name, ya.Age_in_month 
+FROM dogs d
+LEFT JOIN young_animals ya ON ya.name = d.name
+LEFT JOIN home_animals ha ON ha.id = d.type_id
+UNION
+SELECT hm.name, hm.birthday, hm.commands, ha.type_name, ya.Age_in_month 
+FROM hamsters hm
+LEFT JOIN young_animals ya ON ya.name = hm.name
+LEFT JOIN home_animals ha ON ha.id = hm.type_id;
+```
